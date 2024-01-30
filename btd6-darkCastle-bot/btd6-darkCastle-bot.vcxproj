@@ -145,6 +145,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DarkCastleBot.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="ScreenHandler.h" />
   </ItemGroup>
