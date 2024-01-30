@@ -19,13 +19,18 @@ public:
 
 	void playEasyStandart()
 	{
-
+		waitForMiliSeconds(5000);
 	}
 
 private:
 	void waitForMiliSeconds(int miliSeconds)
 	{
+		std::chrono::milliseconds duration(miliSeconds);
 
+		// Make the program sleep for the specified duration
+		std::cout << "Waiting for " << miliSeconds << " milliseconds..." << std::endl;
+		std::this_thread::sleep_for(duration);
+		std::cout << "Finished waiting!" << std::endl;
 	}
 
 private:
