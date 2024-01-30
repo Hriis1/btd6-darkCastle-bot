@@ -27,6 +27,26 @@ public:
 		}
 		_inputHandler.pressMouseLeft();
 
+
+		//Main loop
+		while (true)
+		{
+			//Wit for 0.5 secs
+			waitForMiliSeconds(500);
+
+			//Open the maps
+			if (!mouseToImageOnScreen("Images/btd6_main_loby_play_button.png", 1.5f))
+			{
+				std::cout << "Could not find btd6_main_loby_play_button icon!" << std::endl;
+				continue;
+			}
+			_inputHandler.pressMouseLeft();
+
+			break;
+		}
+		
+		//_inputHandler.pressMouseLeft();
+
 		//waitForMiliSeconds(5000);
 	}
 
