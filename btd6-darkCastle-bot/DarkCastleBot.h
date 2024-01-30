@@ -19,10 +19,32 @@ public:
 
 	void playEasyStandart()
 	{
-		waitForMiliSeconds(5000);
+		//Open the minimised btd 6
+		if (!mouseToImageOnScreen("Images/btd_6_minimised_icon.png", 1.5f))
+		{
+			std::cout << "Could not find btd6 minimised icon!" << std::endl;
+			return;
+		}
+		_inputHandler.pressMouseLeft();
+
+		//waitForMiliSeconds(5000);
 	}
 
 private:
+	bool mouseToImageOnScreen(const std::string& path, float screenScaling)
+	{
+		cv::Point currImgCoords = _screenHandler.findImageInScreen(path, screenScaling);
+
+		if (currImgCoords.x >= 0)
+		{
+			_inputHandler.moveMouse(currImgCoords.x, currImgCoords.y, screenScaling);
+			return true;
+		}
+
+		return false;
+
+	}
+
 	void waitForMiliSeconds(int miliSeconds)
 	{
 		std::chrono::milliseconds duration(miliSeconds);

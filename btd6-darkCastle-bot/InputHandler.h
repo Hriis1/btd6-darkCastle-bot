@@ -44,9 +44,11 @@ public:
         mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
     }
 
-    void moveMouse(int x, int y)
+    void moveMouse(int x, int y, float screenScaling)
     {
-        SetCursorPos(x, y);
+        int xPos = x / screenScaling;
+        int yPos = y / screenScaling;
+        SetCursorPos(xPos, yPos);
     }
 private:
 };

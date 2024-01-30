@@ -2,13 +2,13 @@
 
 int main() {
 
-   /* InputHandler inputHandler;
+    /*InputHandler inputHandler;
     ScreenHandler screenHandler;
 
-    cv::Point imageCenterCoords = screenHandler.findImageInScreen("Images/test1.png", 1.5f);
+    cv::Point imageCenterCoords = screenHandler.findImageInScreen("Images/discord_minimised_icon.png", 1.5f);
 
     if(imageCenterCoords.x >= 0)
-        inputHandler.moveMouse(imageCenterCoords.x, imageCenterCoords.y);*/
+        inputHandler.moveMouse(imageCenterCoords.x, imageCenterCoords.y, 1.5f);*/
 
     DaskCastleBot bot;
     bot.playEasyStandart();
