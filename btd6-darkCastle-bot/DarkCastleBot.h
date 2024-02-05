@@ -19,29 +19,19 @@ public:
 
 	void playEasyDeflation()
 	{
+		
 		//Open the minimised btd 6
-		if (!mouseToImageOnScreen("Images/btd_6_minimised_icon.png", 1.5f))
-		{
-			std::cout << "Could not find btd6 minimised icon!" << std::endl;
-			return;
-		}
-		_inputHandler.pressMouseLeft();
-
+		openBtd6();
 
 		//Main loop
 		bool farmFlag = true;
 		while (farmFlag)
 		{
-			//Wit for 0.5 secs
 			waitForMiliSeconds(500);
 
-			//Open the maps
-			if (!mouseToImageOnScreen("Images/btd6_main_loby_play_button.png", 1.5f))
-			{
-				std::cout << "Could not find btd6_main_loby_play_button icon!" << std::endl;
-				continue;
-			}
-			_inputHandler.pressMouseLeft();
+			//Open dark castle map
+			openDarkCastleFromMenu();
+			
 
 			//Stop farming
 			farmFlag = false;
@@ -110,6 +100,35 @@ private:
 		std::cout << "Waiting for " << miliSeconds << " milliseconds..." << std::endl;
 		std::this_thread::sleep_for(duration);
 		std::cout << "Finished waiting!" << std::endl;
+	}
+
+	bool openBtd6()
+	{
+		
+		if (!mouseToImageOnScreen("Images/btd_6_minimised_icon.png", 1.5f))
+		{
+			std::cout << "Could not find btd6 minimised icon!" << std::endl;
+			return false;
+		}
+		_inputHandler.pressMouseLeft();
+
+		return true;
+	}
+
+	bool openDarkCastleFromMenu()
+	{
+		//Open the maps
+		if (!mouseToImageOnScreen("Images/btd6_main_loby_play_button.png", 1.5f))
+		{
+			std::cout << "Could not find btd6_main_loby_play_button icon!" << std::endl;
+			return false;
+		}
+		_inputHandler.pressMouseLeft();
+
+
+		//Go to expert category
+
+		return true;
 	}
 
 private:
