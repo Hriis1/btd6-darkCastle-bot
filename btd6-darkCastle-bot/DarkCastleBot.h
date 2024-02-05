@@ -21,7 +21,10 @@ public:
 	{
 		
 		//Open the minimised btd 6
-		openBtd6();
+		if (!openBtd6())
+		{
+			return;
+		}
 
 		//Main loop
 		bool farmFlag = true;
@@ -30,7 +33,16 @@ public:
 			waitForMiliSeconds(500);
 
 			//Open dark castle map
-			openDarkCastleFromMenu();
+			if (!openDarkCastleFromMenu())
+			{
+				return;
+			}
+
+			//Go into deflation difficulty
+			if (openDeflationDifficulty())
+			{
+				return;
+			}
 			
 
 			//Stop farming
@@ -155,8 +167,31 @@ private:
 			_inputHandler.pressMouseLeft();
 			waitForMiliSeconds(500);
 		}
+		waitForMiliSeconds(500);
+		
 
+		return true;
+	}
 
+	bool openDeflationDifficulty()
+	{
+		if (!mouseToImageOnScreen("Images/easy_difficulty_btn.png", 1.5f))
+		{
+			std::cout << "Could not find easy_difficulty_btn icon!" << std::endl;
+			return false;
+		}
+		_inputHandler.pressMouseLeft();
+		waitForMiliSeconds(500);
+		if (!mouseToImageOnScreen("Images/deflation_difficulty_btn.png", 1.5f))
+		{
+			std::cout << "Could not find deflation_difficulty_btn icon!" << std::endl;
+			return false;
+		}
+		_inputHandler.pressMouseLeft();
+
+		//Wait for the loading to click to remove the tip
+		waitForMiliSeconds(8000);
+		_inputHandler.pressMouseLeft();
 
 		return true;
 	}
