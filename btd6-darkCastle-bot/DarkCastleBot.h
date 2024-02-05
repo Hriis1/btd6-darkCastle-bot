@@ -29,7 +29,8 @@ public:
 
 
 		//Main loop
-		while (true)
+		bool farmFlag = true;
+		while (farmFlag)
 		{
 			//Wit for 0.5 secs
 			waitForMiliSeconds(500);
@@ -42,7 +43,8 @@ public:
 			}
 			_inputHandler.pressMouseLeft();
 
-			break;
+			//Stop farming
+			farmFlag = false;
 		}
 		
 		//_inputHandler.pressMouseLeft();
