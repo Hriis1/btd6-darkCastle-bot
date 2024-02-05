@@ -125,7 +125,7 @@ private:
 		}
 		_inputHandler.pressMouseLeft();
 
-		waitForMiliSeconds(1000);
+		waitForMiliSeconds(500);
 
 		//Go to expert category
 		if (!mouseToImageOnScreen("Images/expert_section_btn.png", 1.5f))
@@ -134,6 +134,29 @@ private:
 			return false;
 		}
 		_inputHandler.pressMouseLeft();
+
+		waitForMiliSeconds(500);
+
+		//Find and click the dark castle map
+		while (true)
+		{
+			if (mouseToImageOnScreen("Images/darkCastle_map_btn.png", 1.5f))
+			{
+				std::cout << "Dark castle found" << std::endl;
+				_inputHandler.pressMouseLeft();
+				break;
+			}
+
+			if (!mouseToImageOnScreen("Images/expert_section_btn.png", 1.5f))
+			{
+				std::cout << "Could not find expert_section_btn icon!" << std::endl;
+				return false;
+			}
+			_inputHandler.pressMouseLeft();
+			waitForMiliSeconds(500);
+		}
+
+
 
 		return true;
 	}
