@@ -125,8 +125,15 @@ private:
 		}
 		_inputHandler.pressMouseLeft();
 
+		waitForMiliSeconds(1000);
 
 		//Go to expert category
+		if (!mouseToImageOnScreen("Images/expert_section_btn.png", 1.5f))
+		{
+			std::cout << "Could not find expert_section_btn icon!" << std::endl;
+			return false;
+		}
+		_inputHandler.pressMouseLeft();
 
 		return true;
 	}
