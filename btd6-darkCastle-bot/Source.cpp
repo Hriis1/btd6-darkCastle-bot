@@ -11,7 +11,7 @@ int main() {
         inputHandler.moveMouse(imageCenterCoords.x, imageCenterCoords.y, 1.5f);*/
 
     DaskCastleBot bot;
-    bot.playEasyStandart();
+    bot.playEasyDeflation();
    
 
     return 0;
